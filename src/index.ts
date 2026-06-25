@@ -40,15 +40,14 @@ const images = imagePaths.map((imagePath) => new AttachmentBuilder(imagePath))
 // send leclerc images
 client.on("messageCreate", (message) => {
   if (message.author.bot) return
+  if (message.author.username !== "erlebd") return
 
   // 11 is the amount of images, make dynamic based on directory
   const randomImage = images[nextIndex()]
 
-  if (message.content.toLowerCase().includes("f1")) {
-    message.channel.send({
-      files: [randomImage],
-    })
-  }
+  message.channel.send({
+    files: [randomImage],
+  })
 })
 
 client.login(config.DISCORD_TOKEN)

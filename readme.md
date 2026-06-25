@@ -3,7 +3,7 @@
 ## Todo
 
 - [x] få den te å responder med random bilda istedenfor tekst. mangle å ha den så den e random, men ikke gjentar sæ
-- [ ] få den te å gjør det med alle meldingan æ skriv
+- [x] få den te å gjør det med alle meldingan æ skriv
 - [ ] hoste den en plass der den kan kjør permanent, egen server eller hoste-side som e stabil og ikke endre prising med det samme
 - [ ] endre den te å reager på steinar sine meldinga
 - [ ] gjør den rasker te å svar. teste på pc hjem først
