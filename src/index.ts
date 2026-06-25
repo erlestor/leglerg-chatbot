@@ -51,3 +51,7 @@ client.on("messageCreate", (message) => {
 })
 
 client.login(config.DISCORD_TOKEN)
+
+// make render happy since im hosting there. remove if not
+import http from "http"
+http.createServer((_, res) => res.end("ok")).listen(process.env.PORT || 3000)
