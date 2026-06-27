@@ -6,6 +6,7 @@ import { deployCommands } from "./deploy-commands"
 import { config } from "./config"
 import { commands } from "./commands"
 import { nextIndex } from "./utils/random"
+import { targetedUsername } from "./utils/constants"
 
 const client = new Client({
   intents: ["Guilds", "GuildMessages", "DirectMessages", "MessageContent"],
@@ -56,8 +57,3 @@ client.on("messageCreate", (message) => {
 })
 
 client.login(config.DISCORD_TOKEN)
-
-// make render happy since im hosting there. remove if not
-import http from "http"
-import { targetedUsername } from "./utils/constants"
-http.createServer((_, res) => res.end("ok")).listen(process.env.PORT || 3000)
