@@ -10,8 +10,10 @@ import { nextIndex } from "./utils/random"
 const client = new Client({
   intents: ["Guilds", "GuildMessages", "DirectMessages", "MessageContent"],
 })
-client.once("ready", () => {
+
+client.once("ready", async () => {
   console.log("Discord bot is ready! 🤖")
+  await deployCommands({ guildId: config.GUILD_ID })
 })
 
 // register commands when added to a server
@@ -40,12 +42,15 @@ const images = imagePaths.map((imagePath) => new AttachmentBuilder(imagePath))
 // send leclerc images
 client.on("messageCreate", (message) => {
   if (message.author.bot) return
-  if (message.author.username !== "erlebd") return
+  if (message.author.username !== targetedUsername) return
 
-  // 11 is the amount of images, make dynamic based on directory
+  const on_state = fs.readFileSync("./on_state.txt").toString()
+  if (on_state !== "on") return
+
   const randomImage = images[nextIndex()]
 
   message.channel.send({
+    content: 'To turn off the bot. Type "/give_steinar_a_break"',
     files: [randomImage],
   })
 })
@@ -54,4 +59,5 @@ client.login(config.DISCORD_TOKEN)
 
 // make render happy since im hosting there. remove if not
 import http from "http"
+import { targetedUsername } from "./utils/constants"
 http.createServer((_, res) => res.end("ok")).listen(process.env.PORT || 3000)
