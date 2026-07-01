@@ -1,4 +1,4 @@
-# Discord chatbot
+# Leglerg bot
 
 ## Todo
 
