@@ -5,5 +5,5 @@ export const data = new SlashCommandBuilder()
   .setDescription("Lists possible commands")
 
 export async function execute(interaction: CommandInteraction) {
-  return interaction.reply("/give-steinar-a-break\n/turn_on")
+  return interaction.reply("/give-steinar-a-break\n/ragebait_steinar")
 }
